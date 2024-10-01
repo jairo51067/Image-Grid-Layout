@@ -1,0 +1,130 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  font-family: Arial;
+  background-color: black;
+  color: white;
+}
+
+.header {
+  text-align: center;
+  padding: 32px;
+}
+
+.row {
+  /* IE10 */
+  display: -ms-flexbox; 
+  display: flex;
+  /* IE10 */
+  -ms-flex-wrap: wrap; 
+  flex-wrap: wrap;
+  padding: 0px 4px;
+  justify-content: center;
+  align-items: center;
+
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  /* IE10 */
+  -ms-flex: 20%; 
+  flex: 20%;
+  max-width: 20%;
+  padding: 0px 5px;
+  box-sizing:content-box;
+  min-height: 0;
+
+}
+
+.column img {
+  margin-top: 9px;
+  vertical-align: middle;
+  object-fit: cover; /* make the image cover the full space */
+  height: max-content;
+}
+
+.column img:hover, .columnimg:focus{
+  opacity: 0.7;
+  cursor: pointer;
+  filter: drop-shadow(8px 8px 10px gray);
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  padding: 3px;
+  border-radius: 3px;
+}
+
+
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    -ms-flex: 22%;
+    flex: 22%;
+    max-width: 22%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 85%;
+    flex: 85%;
+    max-width: 85%;
+  }
+}
+
+.tooltip {
+  position: relative;
+  display:inline-block;
+  /* border-bottom: 1px dotted black; */
+  cursor: pointer;
+  justify-content: start;
+  font-size: 0.75rem;
+  font-weight: bold;
+  display: flex;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 100%;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  /* Position the tooltip */
+  position: absolute;
+  top: -80%;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+  opacity: 0;
+  transition: opacity 9s;
+}
+
+/* .tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+} */
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+}
